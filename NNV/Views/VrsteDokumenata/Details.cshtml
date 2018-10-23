@@ -1,0 +1,26 @@
+﻿@model NNV.Models.VrsteDokumenata
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VrsteDokumenata</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VrstaDokumenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrstaDokumenta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DokumentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

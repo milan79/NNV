@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<NNV.Models.Prilozi>
+
+@{
+    Layout = "/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <h2>Прилози</h2>
+    <p>
+            @Html.ActionLink("Нови унос", "Create")
+        </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sednice.SednicaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DokumentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Putanja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poslato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumSlanja)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sednice.SednicaID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DokumentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Putanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poslato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumSlanja)
+                </td>
+                <td>
+                        @Html.ActionLink("Измени", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Детаљи", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Обриши", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
+

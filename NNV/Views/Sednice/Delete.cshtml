@@ -1,0 +1,65 @@
+﻿@model NNV.Models.Sednice
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<h2>Обриши</h2>
+
+<h3>Да ли сте сигурни да желите да обришете?</h3>
+<div>
+    <h4>Седнице</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrstaSednice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrstaSednice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ucionica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ucionica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zapisnik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zapisnik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poziv)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Повратак на табелу", "AdminPageView")
+        </div>
+    }
+</div>

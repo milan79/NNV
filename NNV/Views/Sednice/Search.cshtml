@@ -1,0 +1,81 @@
+﻿
+@model IEnumerable<NNV.Models.Sednice>
+
+@{
+    //ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Седнице</h2>
+@*<p>
+    @Html.ActionLink("Нови унос", "Create")
+</p>*@
+@using (Html.BeginForm("Search", "Sednice", FormMethod.Get))
+{
+    <b>Претрага по записнику:</b><br />
+    @Html.TextBox("search") <input type="submit" value="претражи" />
+}
+<br/>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.SednicaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VrstaSednice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ucionica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zapisnik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poziv)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("Не постоји резултат за задати критеријум.");
+            };
+        </script>
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.SednicaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VrstaSednice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ucionica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zapisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poziv)
+            </td>
+            @*<td>
+                @Html.ActionLink("Промени", "Edit", new { id = item.SednicaID }) |
+                @Html.ActionLink("Детаљи", "Details", new { id = item.SednicaID }) |
+                @Html.ActionLink("Обриши", "Delete", new { id = item.SednicaID })
+            </td>*@
+        </tr>
+    }
+
+</table>
+

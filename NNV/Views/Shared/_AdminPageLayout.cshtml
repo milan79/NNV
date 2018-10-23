@@ -1,0 +1,225 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Администратор</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 0;
+            background-color: lightgrey;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content
+         {
+            height: 450px;
+           
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav 
+        {
+            padding-top: 100px;
+            background-color: #f1f1f1;
+            height: 200%;
+            z-index: 0;
+        
+       
+
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: lightgray;
+            color: white;
+            padding: 8px;
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: midnightblue;
+            width: 100%;
+            z-index: 1;
+        }
+
+        
+        .col-sm-2 {
+            font-size: 2rem;
+        }
+
+        .well {
+            font-size: 2rem;
+        }
+
+        .col-sm-8 {
+         padding: 25px;
+        }
+
+        
+
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @@media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+ 
+
+        /*podesavanje dropdown menija Izmena podataka*/
+
+               .dropdown-container
+         {
+    display: none;
+    background-color: #d1bebe;
+    padding-left: 8px;
+         }
+               .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+               .col-sm-2 p, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #2741dd;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+               .sidenav p:hover, .dropdown-btn:hover {
+    color: #1f32a4;
+}
+
+               .active {
+    background-color: #a7a1a1;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>
+            <img src="~/Content/logo.png" class="img-responsive" />
+        </p>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+
+            
+         <div class="col-sm-2 sidenav">
+        
+
+                <br />
+                <p>@Html.ActionLink("Заказивање седнице", "", "")</p>
+                <br />
+
+                @*dropdown izmena podataka*@
+                <button class="dropdown-btn">Измена података 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+
+                <div class="dropdown-container">
+                    <p> @Html.ActionLink("Седнице", "AdminPageView", "Sednice")</p>
+                    <p> @Html.ActionLink("Чланови", "Index", "Clanovi1")</p>
+                    <p> @Html.ActionLink("Прилози", "AdminPageView", "Prilozi")</p>
+                </div>
+
+                <br/>
+                <br/>   
+                <p>@Html.ActionLink("Повратак", "Index", "Admin")</p>
+
+          </div>
+
+
+            <div class="col-sm-8 text-left" style="margin-top:70px; margin-bottom:70px">
+
+                @RenderBody()
+
+            </div>
+
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p>@Html.ActionLink("Одјава", "Logout", "Login")</p>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>
+            &copy; 2003-2018 Рачунарски факултет - Београд
+            &nbsp;&nbsp;&nbsp;
+        </p>
+    </footer>
+
+    <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+    </script>
+
+</body>
+</html>

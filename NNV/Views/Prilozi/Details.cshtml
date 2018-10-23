@@ -1,0 +1,66 @@
+﻿@model NNV.Models.Prilozi
+
+@{
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Прилози</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Sednice.VrstaSednice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sednice.VrstaSednice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DokumentID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DokumentID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Putanja)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Putanja)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Poslato)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Poslato)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DatumSlanja)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DatumSlanja)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Измени", "Edit", new { SednicaID = Model.SednicaID, PrilogID = Model.PrilogID }) |
+        @Html.ActionLink("Повратак на табелу", "AdminPageView")
+    </p>
+</body>
+</html>

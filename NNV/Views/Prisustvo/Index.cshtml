@@ -1,0 +1,73 @@
+﻿@model IEnumerable<NNV.Models.Prisustvo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Нови унос", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model=>Model.ClanID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model=>Model.SednicaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clanovi.ImePrezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sednice.VrstaSednice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prisutan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opravdano)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model=>item.ClanID)
+            </td>
+            <td>
+                @Html.DisplayFor(Model=>item.SednicaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clanovi.ImePrezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sednice.VrstaSednice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prisutan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opravdano) 
+            </td>
+            <td>
+                @Html.ActionLink("Измена", "Edit", new { SednicaID = item.SednicaID, ClanID = item.ClanID }) |
+                @Html.ActionLink("Детаљи", "Details", new { SednicaID = item.SednicaID, ClanID = item.ClanID }) |
+                @Html.ActionLink("Обриши", "Delete", new { SednicaID = item.SednicaID, ClanID = item.ClanID })
+            </td>
+        </tr>
+        @Html.ActionLink("Pogled", "Promena", "Pogled", new { KorisnickoIme = item.Clanovi} )
+    }
+
+    </table>
+
+</body>
+</html>

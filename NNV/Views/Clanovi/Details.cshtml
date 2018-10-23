@@ -1,0 +1,59 @@
+﻿@model NNV.Models.Clanovi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Чланови</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImePrezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImePrezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KorisnickoIme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KorisnickoIme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lozinka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lozinka)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Измена", "Edit", new { id = Model.ClanID }) |
+    @Html.ActionLink("Повратак на табелу", "AdminPageView")
+</p>

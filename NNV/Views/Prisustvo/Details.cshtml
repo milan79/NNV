@@ -1,0 +1,58 @@
+﻿@model NNV.Models.Prisustvo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Присуство</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Clanovi.ImePrezime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Clanovi.ImePrezime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sednice.VrstaSednice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sednice.VrstaSednice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prisutan)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prisutan)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Opravdano)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Opravdano)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Измена", "Edit", new { SednicaID = Model.SednicaID, ClanID = Model.ClanID }) |
+        @Html.ActionLink("Повратак на табелу", "Index")
+    </p>
+</body>
+</html>

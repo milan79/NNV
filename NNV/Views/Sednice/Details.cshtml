@@ -1,0 +1,59 @@
+﻿@model NNV.Models.Sednice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<h2>Детаљи</h2>
+
+<div>
+    <h4>Седнице</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VrstaSednice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VrstaSednice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ucionica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ucionica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zapisnik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zapisnik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poziv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Измена", "Edit", new { id = Model.SednicaID }) |
+    @Html.ActionLink("Повратак на табелу", "AdminPageView")
+</p>

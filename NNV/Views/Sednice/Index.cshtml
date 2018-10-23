@@ -1,0 +1,64 @@
+﻿@model IEnumerable<NNV.Models.Sednice>
+
+@{
+    //ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_NNVLayout.cshtml";
+}
+
+<h2>Седнице</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model=>Model.SednicaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VrstaSednice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ucionica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zapisnik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poziv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(Model=>item.SednicaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VrstaSednice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ucionica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zapisnik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poziv)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SednicaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SednicaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SednicaID})
+        </td>*@
+    </tr>
+}
+
+</table>
